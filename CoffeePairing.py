@@ -99,12 +99,12 @@ if os.path.exists(all_pairs_csv):
     
 #     #make random groups from shuffled participants 
 #    assigned_groups = []                                #list of groups
-#     for index in range(number_of_groups):                                             #COPIED THIS FROM INTERNET, DOES IT WORK? CAN WE MAKE IT BETTER?
+#     for index in range(number_of_groups):                                             
 #         group = participants[index::number_of_groups]
 #         assigned_groups.append(group)                   #change assigned_groups variable with new made group
     
 #     display groups
-#     for index, group in enumerate(assigned_groups):                            #COPIED THIS FROM INTERNET, DOES IT WORK? CAN WE MAKE IT BETTER?
+#     for index, group in enumerate(assigned_groups):                           
 #         print(f"Group {index + 1}: {', '.join(group)}")
         
 
