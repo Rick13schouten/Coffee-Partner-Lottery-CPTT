@@ -3,6 +3,7 @@ import csv
 import random
 import copy
 import os
+import math #for calculating the max number of group combinations 
 
 # path to the CSV files with participant data
 participants_csv = "Coffee Partner Lottery participants.csv"
@@ -19,7 +20,41 @@ new_pairs_csv = "Coffee Partner Lottery new pairs.csv"
 
 # path to CSV file that stores all pairings (to avoid repetition)
 all_pairs_csv = "Coffee Partner Lottery all pairs.csv"
-        
+
+
+#######################  Conversation Starters Section  ###########################
+
+# # read conversation starters CSV file
+# conv_starters=pd.read_csv("Conversation Starters.csv")
+
+# # path to stored conversation starters
+# stored_starters = "Stored Starters.csv"
+# #create list from stored starters
+# stored_starters_list = pd.read_csv(stored_starters)["used starters"].tolist()
+
+# #function selection of new conversation starter        
+# def conv_starters_selection():
+#   while True:
+#     random_index = random.randint(0, len(conv_starters) - 1)
+#     random_starter = conv_starters.iloc[random_index]
+#     # Check if all starters have been used
+#     if len(stored_starters_list) == len(conv_starters):
+#         stored_starters.clear()
+#         break
+#     # Check if the selected starter is already in stored_starters
+#     if random_starter.values[0] not in stored_starters_list:
+#         # Add the selected starter to stored_starters
+#         stored_starters_list.append(random_starter.values[0])
+#         #list stored to the CSV file again
+#         pd.DataFrame({"used starters": stored_starters_list}).to_csv(stored_starters, header=True, index=False)
+#         break  # Exit the loop if a unique starter is found
+#   return random_starter
+
+# # find conversation starter
+# con_starter = conv_starters_selection()
+# print(con_starter)
+
+
 # init set of old pairs
 opairs = set()
 
