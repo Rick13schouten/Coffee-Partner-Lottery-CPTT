@@ -123,7 +123,7 @@ print(output_string)
 # write output into text file for later use
 with open(new_pairs_txt, "wb") as file:
     file.write(output_string.encode("utf8"))
-
+# changes something
 # write new pairs into CSV file (for e.g. use in MailMerge)
 with open(new_pairs_csv, "w") as file:
     header = ["name1", "email1", "name2", "email2", "name3", "email3"]
