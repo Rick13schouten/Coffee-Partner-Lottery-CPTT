@@ -189,13 +189,13 @@ with open(new_groups_txt, "wb") as file:
 with open(individual_message_txt, "w") as file:
     for group in new_groups:
         group = list(group)
-        group_names_emails = ''
+        group_n_email = ''
         for i in range(0,len(group)):
-            name_email = f"{formdata[formdata[header_email] == group[i]].iloc[0][header_name]} ({group[i]})"
+            n_email = f"{formdata[formdata[header_email] == group[i]].iloc[0][header_name]} ({group[i]})"
             if i < len(group)-1:
-                group_names_emails += name_email + ", "
+                group_n_email += n_email + ", "
             else:
-                group_names_emails += name_email
+                group_n_email += n_email
         
         for i in range(0,len(group)):
             message = f'''
