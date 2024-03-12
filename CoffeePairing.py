@@ -210,7 +210,7 @@ The conversation starter this week is:
     {con_starter}
 
 Have fun on your coffee date!
- \n \n \n'''
+\n \n \n'''
             file.write(message)
     
 # append groups to history file
