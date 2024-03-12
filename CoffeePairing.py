@@ -185,6 +185,8 @@ print(output_string)
 with open(new_groups_txt, "wb") as file:
     file.write(output_string.encode("utf8"))
 
+file.close()
+
 # peronalized messages for each group member printed in a new file
 with open(individual_message_txt, "w") as file:
     for group in new_groups:
@@ -199,19 +201,21 @@ with open(individual_message_txt, "w") as file:
         
         for i in range(0,len(group)):
             message = f'''
+
 Dear {formdata[formdata[header_email] == group[i]].iloc[0][header_name]},
 
 You signed up for the Coffee Pairing this week! Great!
 
 Your group for this week is: 
-    {group_names_emails}
+    {group_n_email}
 
 The conversation starter this week is: 
     {con_starter}
 
 Have fun on your coffee date!
 \n \n \n'''
-            file.write(message)
+            file.close()
+
     
 # append groups to history file
 if os.path.exists(all_groups_csv):
