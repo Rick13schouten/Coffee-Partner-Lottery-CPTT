@@ -158,6 +158,7 @@ print(con_starter)
 #########################  Generate messages to groups (requirement 8) ############################# 
 # load participant's data
 formdata = pd.read_csv(participants_csv, sep=DELIMITER)
+individual_message_txt = "Individual Messages.txt"
 
 # assemble output for printout
 output_string = ""
@@ -184,7 +185,34 @@ print(output_string)
 with open(new_groups_txt, "wb") as file:
     file.write(output_string.encode("utf8"))
 
-                
+# peronalized messages for each group member printed in a new file
+with open(individual_message_txt, "w") as file:
+    for group in new_groups:
+        group = list(group)
+        group_names_emails = ''
+        for i in range(0,len(group)):
+            name_email = f"{formdata[formdata[header_email] == group[i]].iloc[0][header_name]} ({group[i]})"
+            if i < len(group)-1:
+                group_names_emails += name_email + ", "
+            else:
+                group_names_emails += name_email
+        
+        for i in range(0,len(group)):
+            message = f'''
+Dear {formdata[formdata[header_email] == group[i]].iloc[0][header_name]},
+
+You signed up for the Coffee Pairing this week! Great!
+
+Your group for this week is: 
+    {group_names_emails}
+
+The conversation starter this week is: 
+    {con_starter}
+
+Have fun on your coffee date!
+ \n \n \n'''
+            file.write(message)
+    
 # append groups to history file
 if os.path.exists(all_groups_csv):
     mode = "a"
