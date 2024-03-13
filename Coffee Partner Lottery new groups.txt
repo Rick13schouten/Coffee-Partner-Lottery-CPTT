@@ -1,5 +1,9 @@
 ------------------------
 Today's coffee partners:
 ------------------------
-* Bob Smith (bob.smith@email.com), Eve Miller (eve.miller@email.com), Kim Baker (kim.baker@email.com)
-* Alice Smith (alice.smith@email.com), John Doe (john.doe@email.com)
+GROUP 1:  Eve Miller (eve.miller@email.com), Julio Jones (Julio.Jones@email.com), Peter Griffin (Peter9.Griffin11@gmail.com), Your name: (Your e-mail:)
+ 
+GROUP 2:  Bob Smith (bob.smith@email.com), Wolfgang Goethe (Dichter@email.com), Usain Bolt (Usain.Bolt@gmail.com), John Doe (john.doe@email.com)
+ 
+GROUP 3:  Kim Baker (kim.baker@email.com), Alice Smith (alice.smith@email.com), John Wick (Dawg@email.com)
+ 

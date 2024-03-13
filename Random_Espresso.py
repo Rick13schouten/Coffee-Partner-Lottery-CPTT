@@ -1,22 +1,30 @@
 ## project2-group17
 
+#Anna Maranus 
+#Aristotelis Bilinis-Moraitis 
+#Sebastian Haile 
+#Rick Shouten 
 
-############ imports section ###############
+############ Import Libraries Section ###############
 import pandas as pd
 import csv
 import random
-import copy
 import os
 import math #for calculating the max number of group combinations 
 
 
 ###################  Load Files Section (requirments 1,2) ###############
-# path to the CSV files with participant data
-participants_csv = "Coffee Partner Lottery participants.csv"
+
+# Load participants data from the Google Sheets source using pandas data frame like in a local csv 
+sheet_id = '15TfODshWl52QMxSAyVwrKHTpAI36YOj65qat1JohvAk'
+df = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv")
+
+# Extract the first column as the list of participants
+participants_list = df.iloc[:, 0].tolist()
 
 # header names in the CSV file (name and e-mail of participants)
-header_name = "Your name:"
-header_email = "Your e-mail:"
+header_name = "Name"
+header_email = "E-mail adress"
 
 # path to TXT file that stores the pairings of this round
 new_groups_txt = "Coffee Partner Lottery new groups.txt"
@@ -33,25 +41,23 @@ all_groups_csv = "Coffee Partner Lottery all groups.csv"
 # initial set of old groups 
 ogroups = set()
 
-DELIMITER=','
+DELIMITER=',' #to read the csv file 
 
 # load all previous groups (to avoid redundancies)
-if os.path.exists(all_groups_csv):
+if os.path.exists(all_groups_csv):              #checks if csv file exists in the system
     with open(all_groups_csv, "r") as file:
-        csvreader = csv.reader(file, delimiter=DELIMITER)
-        for row in csvreader:
-            group = []
+        csvreader = csv.reader(file, delimiter=DELIMITER)     #splits values of the csv file
+        for row in csvreader:                     #loop that gives every different row as a list
+            group = []                            #initialize the name list
             for i in range(0,len(row)):
-                group.append(row[i])                        
-            ogroups.add(tuple(group))
+                group.append(row[i])             #adds to group from the row taken from the csv file             
+            ogroups.add(tuple(group))            #makes group to tuple and adds it to old groups set
 
-#create a participants list from the csv file
-participants_list = pd.read_csv(participants_csv)["Your name:"].tolist()
 
 # Calculate the number of participants
 num_participants = len(participants_list)
 
-# Randomly determine the number of groups
+# Randomly determine the number of groups (could be from 1 group with all participants to pairs)
 num_groups = random.randint(1, num_participants // 2)
 
 # Shuffle the list of participants
@@ -73,49 +79,48 @@ tries_limit= total_combinations(num_participants)    #limit of tries before deci
 
 # Assign people from the list into random pairs or groups
 while True:
-    # Clear the new_groups set
-    new_groups.clear()
+    new_groups.clear()     # Clear the new_groups set
     
     # Make random groups from shuffled participants
-    for index in range(num_groups):
-        group = participants_list[index::num_groups]
-        new_groups.add(tuple(group))
+    for index in range(num_groups):     
+        group = participants_list[index::num_groups] #every time starts from index and jumps to every element that is munber of groups far on the list 
+        new_groups.add(tuple(group))          #every group formed converted to tuple and added to new groups set
 
     # Check if all new groups are indeed new, else reset
     new_groups_found = True
     for new_group in new_groups:
       if new_group in ogroups:
-        new_groups_found = False
-        break
+        new_groups_found = False 
+        break                   #stops for loop if an old group is repeated
     if new_groups_found:
-      break
-    else:
-      tries+=1
-      if tries>=tries_limit:
-          ogroups.clear()        
-          print("No new groups found. Participants may have been assigned to the same groups")
-          open(all_groups_csv, 'w').close()   # Clear the contents of the all_groups_csv file
+      break                     #if new groups are still true then while loop stops
+    else:                       #if no new groups then we try again 
+      tries+=1              
+      if tries>=tries_limit:    # if the tries are most than the max then all possible groups have been formed
+          ogroups.clear()       # since all groups formed we clear the old groups set
+          print("No new groups found. Some participants may have been assigned to the same groups in the past")
+          open(all_groups_csv, 'w').close()   # Aslo clear the contents of the all_groups_csv file
           break
-      random.shuffle(participants_list)
+      random.shuffle(participants_list)    # we suffle again the list of participants to find new groups
 
-# Display groups
+# Display groups after they are formed
 for index, group in enumerate(new_groups):
    print(f"Group {index + 1}: {', '.join(group)}")
    
-# append groups to history file
-if os.path.exists(all_groups_csv):
+# add groups to history file
+if os.path.exists(all_groups_csv):   #check if file exists to write it if not 
     mode = "a"
 else:
     mode = "w"
-
 with open(all_groups_csv, mode) as file:
     for group in new_groups:
-        group = list(group)
+        group = list(group)    #convert group to list
         for i in range(0,len(group)):
             if i < len(group)-1:
-                file.write(group[i] + DELIMITER)
+                file.write(group[i] + DELIMITER) #delimeter added after every element of the csv file
             else:
-                file.write(group[i] + "\n")
+                file.write(group[i] + "\n")     #if its the last element it changes lines so next group will be in another one.
+                
 
 
 
@@ -132,14 +137,14 @@ header_starters="used starters"
 
 #function selection of new conversation starter        
 def conv_starters_selection():
-  while True:
+  while True:   #loop won't stop until new starter is found or all starters have been used already
     random_index = random.randint(0, len(conv_starters) - 1)
     random_starter = conv_starters.iloc[random_index]
     # Check if all starters have been used
     if len(stored_starters_list) == len(conv_starters):
         # Open the CSV file in write mode to clear its contents
         with open(stored_starters, 'w') as file:
-              file.write(header_starters)          
+              file.write(header_starters)    #just rewrite used starters which is the header and clears everything else  
         break
     # Check if the selected starter is already in stored_starters
     if random_starter.values[0] not in stored_starters_list:
@@ -147,7 +152,7 @@ def conv_starters_selection():
         stored_starters_list.append(random_starter.values[0])
         #list stored to the CSV file again
         pd.DataFrame({"used starters": stored_starters_list}).to_csv(stored_starters, header=True, index=False)
-        break  # Exit the loop if a unique starter is found
+        break        # exit the loop if a new starter is found
   return random_starter
 
 # find conversation starter
@@ -157,7 +162,6 @@ print(con_starter)
 
 #########################  Generate messages to groups (requirement 8) ############################# 
 # load participant's data
-formdata = pd.read_csv(participants_csv, sep=DELIMITER)
 individual_message_txt = "Individual Messages.txt"
 
 # assemble output for printout
@@ -167,17 +171,19 @@ output_string += "------------------------\n"
 output_string += "Today's coffee partners:\n"
 output_string += "------------------------\n"
 
+g=1
 for group in new_groups:
-    output_string += "* "
+    output_string += f"GROUP {g}:  "  #gives groups number
     for name in group:
         # Find the corresponding email address in formdata based on the name
-        email = formdata.loc[formdata[header_name] == name, header_email].iloc[0]
+        email = df.loc[df[header_name] == name, header_email].iloc[0]
         # Append name and email pair to the output string
         output_string += f"{name} ({email})"
         # Add comma if it's not the last member of the group
         if name != group[-1]:
             output_string += ", "
-    output_string += "\n"
+    g+=1
+    output_string += "\n \n"
 # write output to console
 print(output_string)
 
@@ -190,50 +196,31 @@ file.close()
 # peronalized messages for each group member printed in a new file
 with open(individual_message_txt, "w") as file:
     for group in new_groups:
-        group = list(group)
-        group_n_email = ''
-        for i in range(0,len(group)):
-            n_email = f"{formdata[formdata[header_email] == group[i]].iloc[0][header_name]} ({group[i]})"
-            if i < len(group)-1:
-                group_n_email += n_email + ", "
+        for member in group:
+            matching_rows = df[df[header_name] == member]
+            if not matching_rows.empty:
+                n_email = matching_rows.iloc[0][header_email]
+                name = matching_rows.iloc[0][header_name]
             else:
-                group_n_email += n_email
-        
-        for i in range(0,len(group)):
-            message = f'''
+                print(f"No matching email found for {member}")
+                continue
 
-Dear {formdata[formdata[header_email] == group[i]].iloc[0][header_name]},
+            message = f'''
+Dear {name},
 
 You signed up for the Coffee Pairing this week! Great!
 
 Your group for this week is: 
-    {group_n_email}
+    {', '.join(group)}
 
 The conversation starter this week is: 
     {con_starter}
 
 Have fun on your coffee date!
 \n \n \n'''
-            file.close()
+            file.write(message)
 
-    
-# append groups to history file
-if os.path.exists(all_groups_csv):
-    mode = "a"
-else:
-    mode = "w"
-
-with open(all_groups_csv, mode) as file:
-    for group in new_groups:
-        group = list(group)
-        for i in range(0,len(group)):
-            if i < len(group)-1:
-                file.write(group[i] + DELIMITER)
-            else:
-                file.write(group[i] + "\n")
-
-
-             
+         
 # print finishing message
 print()
 print("Job done.")
