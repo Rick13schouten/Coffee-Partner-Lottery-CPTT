@@ -24,7 +24,7 @@ participants_list = df.iloc[:, 0].tolist()
 
 # header names in the CSV file (name and e-mail of participants)
 header_name = "Name"
-header_email = "E-mail adress"
+header_email = "E-mail address"
 
 # path to TXT file that stores the pairings of this round
 new_groups_txt = "Coffee Partner Lottery new groups.txt"

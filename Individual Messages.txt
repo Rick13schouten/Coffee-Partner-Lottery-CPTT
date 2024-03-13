@@ -4,87 +4,7 @@ Dear Eve Miller,
 You signed up for the Coffee Pairing this week! Great!
 
 Your group for this week is: 
-    Eve Miller, Julio Jones, Peter Griffin, Your name:
-
-The conversation starter this week is: 
-    Conversation Starters    Who did 9/11?
-Name: 3, dtype: object
-
-Have fun on your coffee date!
-
- 
- 
-
-Dear Julio Jones,
-
-You signed up for the Coffee Pairing this week! Great!
-
-Your group for this week is: 
-    Eve Miller, Julio Jones, Peter Griffin, Your name:
-
-The conversation starter this week is: 
-    Conversation Starters    Who did 9/11?
-Name: 3, dtype: object
-
-Have fun on your coffee date!
-
- 
- 
-
-Dear Peter Griffin,
-
-You signed up for the Coffee Pairing this week! Great!
-
-Your group for this week is: 
-    Eve Miller, Julio Jones, Peter Griffin, Your name:
-
-The conversation starter this week is: 
-    Conversation Starters    Who did 9/11?
-Name: 3, dtype: object
-
-Have fun on your coffee date!
-
- 
- 
-
-Dear Your name:,
-
-You signed up for the Coffee Pairing this week! Great!
-
-Your group for this week is: 
-    Eve Miller, Julio Jones, Peter Griffin, Your name:
-
-The conversation starter this week is: 
-    Conversation Starters    Who did 9/11?
-Name: 3, dtype: object
-
-Have fun on your coffee date!
-
- 
- 
-
-Dear Bob Smith,
-
-You signed up for the Coffee Pairing this week! Great!
-
-Your group for this week is: 
-    Bob Smith, Wolfgang Goethe, Usain Bolt, John Doe
-
-The conversation starter this week is: 
-    Conversation Starters    Who did 9/11?
-Name: 3, dtype: object
-
-Have fun on your coffee date!
-
- 
- 
-
-Dear Wolfgang Goethe,
-
-You signed up for the Coffee Pairing this week! Great!
-
-Your group for this week is: 
-    Bob Smith, Wolfgang Goethe, Usain Bolt, John Doe
+    Eve Miller, Usain Bolt, Kim Baker
 
 The conversation starter this week is: 
     Conversation Starters    Who did 9/11?
@@ -100,23 +20,7 @@ Dear Usain Bolt,
 You signed up for the Coffee Pairing this week! Great!
 
 Your group for this week is: 
-    Bob Smith, Wolfgang Goethe, Usain Bolt, John Doe
-
-The conversation starter this week is: 
-    Conversation Starters    Who did 9/11?
-Name: 3, dtype: object
-
-Have fun on your coffee date!
-
- 
- 
-
-Dear John Doe,
-
-You signed up for the Coffee Pairing this week! Great!
-
-Your group for this week is: 
-    Bob Smith, Wolfgang Goethe, Usain Bolt, John Doe
+    Eve Miller, Usain Bolt, Kim Baker
 
 The conversation starter this week is: 
     Conversation Starters    Who did 9/11?
@@ -132,23 +36,7 @@ Dear Kim Baker,
 You signed up for the Coffee Pairing this week! Great!
 
 Your group for this week is: 
-    Kim Baker, Alice Smith, John Wick
-
-The conversation starter this week is: 
-    Conversation Starters    Who did 9/11?
-Name: 3, dtype: object
-
-Have fun on your coffee date!
-
- 
- 
-
-Dear Alice Smith,
-
-You signed up for the Coffee Pairing this week! Great!
-
-Your group for this week is: 
-    Kim Baker, Alice Smith, John Wick
+    Eve Miller, Usain Bolt, Kim Baker
 
 The conversation starter this week is: 
     Conversation Starters    Who did 9/11?
@@ -164,7 +52,103 @@ Dear John Wick,
 You signed up for the Coffee Pairing this week! Great!
 
 Your group for this week is: 
-    Kim Baker, Alice Smith, John Wick
+    John Wick, Wolfgang Goethe, Bob Smith, John Doe
+
+The conversation starter this week is: 
+    Conversation Starters    Who did 9/11?
+Name: 3, dtype: object
+
+Have fun on your coffee date!
+
+ 
+ 
+
+Dear Wolfgang Goethe,
+
+You signed up for the Coffee Pairing this week! Great!
+
+Your group for this week is: 
+    John Wick, Wolfgang Goethe, Bob Smith, John Doe
+
+The conversation starter this week is: 
+    Conversation Starters    Who did 9/11?
+Name: 3, dtype: object
+
+Have fun on your coffee date!
+
+ 
+ 
+
+Dear Bob Smith,
+
+You signed up for the Coffee Pairing this week! Great!
+
+Your group for this week is: 
+    John Wick, Wolfgang Goethe, Bob Smith, John Doe
+
+The conversation starter this week is: 
+    Conversation Starters    Who did 9/11?
+Name: 3, dtype: object
+
+Have fun on your coffee date!
+
+ 
+ 
+
+Dear John Doe,
+
+You signed up for the Coffee Pairing this week! Great!
+
+Your group for this week is: 
+    John Wick, Wolfgang Goethe, Bob Smith, John Doe
+
+The conversation starter this week is: 
+    Conversation Starters    Who did 9/11?
+Name: 3, dtype: object
+
+Have fun on your coffee date!
+
+ 
+ 
+
+Dear Peter Griffin,
+
+You signed up for the Coffee Pairing this week! Great!
+
+Your group for this week is: 
+    Peter Griffin, Julio Jones, Alice Smith
+
+The conversation starter this week is: 
+    Conversation Starters    Who did 9/11?
+Name: 3, dtype: object
+
+Have fun on your coffee date!
+
+ 
+ 
+
+Dear Julio Jones,
+
+You signed up for the Coffee Pairing this week! Great!
+
+Your group for this week is: 
+    Peter Griffin, Julio Jones, Alice Smith
+
+The conversation starter this week is: 
+    Conversation Starters    Who did 9/11?
+Name: 3, dtype: object
+
+Have fun on your coffee date!
+
+ 
+ 
+
+Dear Alice Smith,
+
+You signed up for the Coffee Pairing this week! Great!
+
+Your group for this week is: 
+    Peter Griffin, Julio Jones, Alice Smith
 
 The conversation starter this week is: 
     Conversation Starters    Who did 9/11?
